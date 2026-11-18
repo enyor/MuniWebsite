@@ -205,3 +205,7 @@ Route::post('razorpaywalletpayment', [App\Http\Controllers\TransactionController
 Route::post('wallet-process-mercadopago', [App\Http\Controllers\TransactionController::class, 'processMercadoPagoPayment'])->name('wallet-process-mercadopago');
 Route::get('wallet-success', [App\Http\Controllers\TransactionController::class, 'success'])->name('wallet-success');
 Route::get('wallet-notify', [App\Http\Controllers\TransactionController::class, 'notify'])->name('wallet-notify');
+
+Route::get('/delete-account', [AccountDeletionController::class, 'showForm'])->name('account-deletion.form');
+Route::post('/delete-account', [AccountDeletionController::class, 'submit'])->name('account-deletion.submit')->middleware('throttle:5,1'); // anti abuso
+Route::get('/delete-account/confirm/{token}', [AccountDeletionController::class, 'confirm'])->name('account-deletion.confirm');

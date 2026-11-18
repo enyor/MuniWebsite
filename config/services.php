@@ -29,5 +29,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    
+    'admin_api' => [
+        'url' => env('ADMIN_API_URL'),
+        'account_deletion_key' => env('ACCOUNT_DELETION_API_KEY'),
+    ],
 
 ];
