@@ -1,4 +1,6 @@
+asssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 @include('layouts.app')
+asssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
 @section('content')
 <div class="container" style="max-width:640px;margin:40px auto">
     <h2>Eliminar mi cuenta y datos</h2>
