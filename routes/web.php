@@ -29,6 +29,7 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TrendingController;
 use App\Http\Controllers\VendorController;
 use App\Http\Controllers\PayLaterServiceChargeController;
+use App\Http\Controllers\AccountDeletionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -206,6 +207,6 @@ Route::post('wallet-process-mercadopago', [App\Http\Controllers\TransactionContr
 Route::get('wallet-success', [App\Http\Controllers\TransactionController::class, 'success'])->name('wallet-success');
 Route::get('wallet-notify', [App\Http\Controllers\TransactionController::class, 'notify'])->name('wallet-notify');
 
-Route::get('/delete-account', [App\Http\Controllers\AccountDeletionController::class, 'showForm'])->name('account-deletion.form');
-Route::post('/delete-account', [App\Http\Controllers\AccountDeletionController::class, 'submit'])->name('account-deletion.submit')->middleware('throttle:5,1'); // anti abuso
-Route::get('/delete-account/confirm/{token}', [App\Http\Controllers\AccountDeletionController::class, 'confirm'])->name('account-deletion.confirm');
+Route::get('/delete-account', [AccountDeletionController::class, 'showForm'])->name('account-deletion.form');
+Route::post('/delete-account', [AccountDeletionController::class, 'submit'])->name('account-deletion.submit')->middleware('throttle:5,1'); // anti abuso
+Route::get('/delete-account/confirm/{token}', [AccountDeletionController::class, 'confirm'])->name('account-deletion.confirm');
